@@ -1,3 +1,7 @@
+/**
+ * \file onegin.h
+ * \brief functions prototypes
+*/
 #include <stdio.h>
 int mystrcmp(const char *first, const char *second);
 int compar (const void *pl1, const void* pl2);

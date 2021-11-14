@@ -1,14 +1,14 @@
-build: main.o source.o 
- 	gcc main.o source.o -lm
+build: main.o onegin.o 
+ 	gcc main.o onegin.o -lm
 
 main.o: main.c
 	gcc -c main.c
 
-source.o: source.c header.h
-	gcc -c source.c
+onegin.o: onegin.c onegin.h
+	gcc -c onegin.c
 
 build_docs:
 	doxygen Doxyfile
 
 clean:
-	rm a.exe main.o source.o
+	rm a.exe main.o onegin.o
