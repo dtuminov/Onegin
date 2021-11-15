@@ -46,14 +46,20 @@ int compar (const void *pl1, const void* pl2){
 */
 
 size_t count_lines(FILE* file){ 
-    int lines_quantity = 0;
-    while (! feof(file)) {
-        if (fgetc(file) == '\n') {
-            lines_quantity++;
-        }
-    } 
-    fseek(file, 0, SEEK_SET);
-    return lines_quantity;
+    if (file == NULL) {
+        printf("Ошибка открытия файла");
+        return 0;
+    }
+    else{
+        int lines_quantity = 0;
+        while (! feof(file)) {
+            if (fgetc(file) == '\n') {
+                lines_quantity++;
+            }
+        } 
+        fseek(file, 0, SEEK_SET);
+        return lines_quantity;
+    }
  }
 
 /**
@@ -65,6 +71,9 @@ size_t count_lines(FILE* file){
 */
 
 char*  devide_lines(char* sausage, size_t length){
+    if(sausage == NULL){
+        return NULL;
+    }
     //change '\n' to '\0' to iteration
     for (size_t i = 0; i < length; ++i)
     {

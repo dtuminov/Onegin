@@ -29,7 +29,7 @@ int main(){
     printf("complete sotring\n");
     //print sorting array
     //error, fix this
-    print_array(strings, file_bytes_size);
+    //print_array(strings, file_bytes_size);
     run_all_test();
     return 0;
 }

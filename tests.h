@@ -22,7 +22,6 @@ errors test_mystrcmp();
 errors test_compar();
 errors test_count_lines();
 errors test_devide_lines();
-errors test_fill_array();
 errors test_print_array();
 
 #endif
