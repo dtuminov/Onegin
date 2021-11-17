@@ -107,7 +107,14 @@ errors test_devide_lines(){
 //realization test_mqsot
 errors test_mqsort(){
     printf("test_mqsort start working\n");
-    
+    int arr[] = {5,1,8,2};
+    mqsort(arr, 4, sizeof(int), compar);
     printf("test_mqsort finish working\n");
+    if (arr[0] != 1 || arr[1] != 2 || arr[2] != 5 || arr[3] != 8)
+    {
+        print_warning;
+        return FAILED;
+    }
+    
     return OK;
 }
