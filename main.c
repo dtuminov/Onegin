@@ -9,7 +9,7 @@
 #include "tests.h"
 
 int main(){
-    FILE *file = fopen("onigin.txt","rb");
+    FILE *file = fopen("files/onigin.txt","rb");
     fseek(file, 0, SEEK_END);
     size_t file_bytes_size = ftell(file);
     fseek(file, 0, SEEK_SET);
@@ -25,9 +25,9 @@ int main(){
     fill_array(strings, sausage, file_bytes_size);
     //sorting array
     printf("start sorting\n");
-    qsort(strings, lines_count, sizeof(*strings), compar);
+    mqsort(strings, lines_count, sizeof(*strings), compar);
     printf("complete sotring\n");
-    //print sorting array
+    //print sorting arrayk
     //error, fix this
     //print_array(strings, file_bytes_size);
     run_all_test();

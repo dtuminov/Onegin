@@ -47,7 +47,7 @@ int compar (const void *pl1, const void* pl2){
 
 size_t count_lines(FILE* file){ 
     if (file == NULL) {
-        printf("Ошибка открытия файла");
+        printf("File was not opened");
         return 0;
     }
     else{
@@ -121,4 +121,30 @@ void print_array(char** array, int lines_count){
     }
     printf("end");
     return;
+}
+
+/**
+ * @brief sorting given to function array
+ * 
+ * @param first 
+ * @param number 
+ * @param size 
+ * @param comparator 
+ */
+
+void mqsort ( void * first, size_t number, size_t size, int ( * comparator ) ( const void *, const void * ) ){
+    for (size_t i = 0; i < number; i++)
+    {
+       for (size_t j = 0; j < number - 1; j++)
+       {
+           char* curr_element = (char*)(first)+j*size;
+           if (comparator((void *)curr_element, (void *)(curr_element+size)) > 0)
+           {
+                char tmp[512] = "";
+                memcpy(tmp, curr_element, size);
+                memcpy(curr_element, curr_element+size, size);
+                memcpy(curr_element+size, tmp, size);
+           }
+       }
+    }
 }

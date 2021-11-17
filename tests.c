@@ -21,7 +21,6 @@ int run_all_test(){
     assert(test_compar() == OK);
     assert(test_count_lines() == OK);
     assert(test_devide_lines() == OK);
-    //assert(test_fill_array() == OK);
     printf("All test runned successfully\n");
     return 0;
 }
@@ -32,11 +31,13 @@ errors test_mystrcmp(){
     char test_string2[] = "Hello";
     // Program performance test
     if (mystrcmp(test_string1, test_string2) != 0) {
+        print_warning;
         return FAILED;
     }
     char test_string3[] = "Hi";
     // Wrong performance test
     if (mystrcmp(test_string1, test_string3) == 0) {
+        print_warning;
         return FAILED;
     }
     printf("test_mystrcmp finish working\n");
@@ -45,14 +46,19 @@ errors test_mystrcmp(){
 // realization test_compar
 errors test_compar(){
     printf("test_compar start working\n");
-    /* code
-    char str1[] = "abcde";
-    char str2[] = "abcde";
-    if (compar(str1, str2) != 0)
+    char *str1 = strdup("abcde");
+    char *str2 = strdup("abcde");
+    if (compar(&str1, &str2) != 0)
     {
+        print_warning;
         return FAILED;
     }
-    */
+    str2 = strdup("kbcde");
+    if (compar(&str1, &str2) != -10)
+    {
+        print_warning;
+        return FAILED;
+    }
     printf("test_compar finish working\n");
     return OK;
 }
@@ -60,12 +66,20 @@ errors test_compar(){
 errors test_count_lines(){
     printf("test_count_lines start working\n");
     // code
-    //FILE *file = fopen("tes_file.txt","r");
-   // if (count_lines(file) != 0)
-    //{
-   //     return FAILED;
-   // }
-   // fclose(file);
+    FILE *file = fopen("tes_file.txt","r");
+    if (count_lines(file) != 0)
+    {
+        print_warning;
+        return FAILED;
+    }
+    fclose(file);
+    FILE *file1 = fopen("files/tets_file.txt","r");
+    if (count_lines(file1) != 2)
+    {
+        print_warning;
+        return FAILED;
+    }
+    fclose(file1);
     printf("test_count_lines finish working\n");
     return OK;
 }
@@ -77,18 +91,23 @@ errors test_devide_lines(){
     devide_lines(sausage, strlen(sausage));
     if (mystrcmp(sausage+6, "world") != 0  || mystrcmp(sausage, "hello"))
     {
-        printf("Warning in function test_devide_lines:%d\n",__LINE__);
+        print_warning;
         return FAILED;
     }
     // test of NULL buf
     char* sausage2 = NULL;
     if (devide_lines(sausage2, 0) != NULL)
     {
-        printf("Warning in function test_devide_lines:%d\n",__LINE__);
+        print_warning;
         return FAILED;
     }
     printf("test_devide_lines finish working\n");
     return OK;
 }
-
-
+//realization test_mqsot
+errors test_mqsort(){
+    printf("test_mqsort start working\n");
+    
+    printf("test_mqsort finish working\n");
+    return OK;
+}

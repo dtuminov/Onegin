@@ -12,6 +12,8 @@
 #ifndef PROJECT_TESTS_H
 #define PROJECT_TESTS_H
 
+#define print_warning printf("Warning in function %s:%d\n", __FUNCTION__ ,__LINE__);
+
 typedef enum{
     OK, 
     FAILED
@@ -22,6 +24,6 @@ errors test_mystrcmp();
 errors test_compar();
 errors test_count_lines();
 errors test_devide_lines();
-errors test_print_array();
+errors test_mqsort();
 
 #endif
