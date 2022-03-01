@@ -17,6 +17,7 @@ int main(){
     // create bufer
     char* sausage = (char*)calloc(sizeof(char),file_bytes_size);
     fread(sausage, sizeof(char),file_bytes_size, file);
+    printf("%skfndvnfdkjvnkfdnvkjdnjnfvfdknfnvdnvkjfnvfdkvnkdnkvnfjnvkdnjfvnfdknnj", sausage);
     // create array for sorting p.1
     char** strings = (char**)calloc(sizeof(char*),lines_count);
     // devide sausage to strings
@@ -29,7 +30,7 @@ int main(){
     printf("complete sotring\n");
     //print sorting arrayk
     //error, fix this
-    //print_array(strings, file_bytes_size);
+   // print_array(strings, file_bytes_size);
     run_all_test();
     return 0;
 }

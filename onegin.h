@@ -21,5 +21,6 @@ char*  devide_lines(char* sausage, size_t length);
 char** fill_array(char** array, char* copied, size_t length);
 void print_array(char** array, int lines_count);
 void mqsort ( void * first, size_t number, size_t size, int ( * comparator ) ( const void *, const void * ) );
+void format(char* array);
 
 #endif

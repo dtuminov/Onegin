@@ -66,7 +66,7 @@ errors test_compar(){
 errors test_count_lines(){
     printf("test_count_lines start working\n");
     // code
-    FILE *file = fopen("tes_file.txt","r");
+    FILE *file = fopen("files/tts_file.txt","r");
     if (count_lines(file) != 0)
     {
         print_warning;
